@@ -11,4 +11,9 @@ app.use(express.json())
 app.use("/productos", rutaProductos)
 app.use("/categorias", rutaCategorias)
 
+// Middleware que maneja el NOT FOUND
+app.use((req, res, next) => {
+    res.status(404).json({message: "endpoint not found"})
+})
+
 export default app
